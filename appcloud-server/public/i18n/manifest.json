@@ -1,0 +1,45 @@
+{
+    "name": "App Cloud i18n demo",
+    "description": "Hello World / Hola Mundo",
+    "version": "1.0",
+    "devices": [
+        "iPhone",
+        "Android"
+    ],
+    "platformConfig": {
+        "android": {
+            "nativeNavigation": true
+        },
+        "iOS": {
+            "nativeNavigation": true
+        }
+    },
+    "views": [
+        {
+            "navigationTitle": "Hello",
+            "navigationIcon": "images/icons/hello.png",
+            "uri": "html/hello.html",
+            "locales": "./txt/locales/en.txt",
+            "markup": "./txt/markup/hello.txt",
+            "settings": [],
+            "styles": [],
+            "data": [
+                {
+                    "name": "google-news",
+                    "contentFeed": "4e5b98ce899b8a67a5012d26",
+                    "type": "feed"
+                }
+            ]
+        },
+        {
+            "navigationTitle": "Goodbye",
+            "navigationIcon": "images/icons/goodbye.png",
+            "uri": "html/goodbye.html",
+            "locales": "./txt/locales/en.txt",
+            "markup": "./txt/markup/goodbye.txt",
+            "settings": [],
+            "styles": [],
+            "data": []
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+.header
+  .divider
+  h1 App Cloud Web Server
+  .divider
+
+ul
+  - for( var i=0; i<apps.length; i++ )
+    li.app(data-name=apps[i].name)
+      a(href="/scan/" + apps[i].name)
+        
+        - if( apps[i].demo )
+          img(src="/images/teaching-icon.png")
+          p #{apps[i].name}
+          div.details Details
+        - else
+          img(src="/images/icon.png")
+          p #{apps[i].name}
+
+br
+br
+
+- if(demosDownloaded)
+  .download Refresh demos!
+- else
+  .download Download Demos!
+
+.readme-container
+  .contents
+  .close
+
+script(src="http://code.jquery.com/jquery-1.7.2.min.js")
+script(src="/javascripts/home.js")
+script(src="/javascripts/jquery.syntaxhighlighter.min.js")

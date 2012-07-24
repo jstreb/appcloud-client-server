@@ -1,0 +1,31 @@
+.localhost-warning.hide
+  | You are currently running with the domain of localhost.  In order to test with the workshop you must provide the local area network IP address for your computer.  (Your phone cannot reach localhost)
+  | To find your IP address you can follow the steps provided <a href="http://kb.iu.edu/data/aapa.html">here</a>.
+.phone
+  img.qr-code(src=qrCodeImage)
+  .input-container
+    input(id="input-url", value=manifestPath)
+    .copy-container(id="copyContainer")
+      .copy(id="copy")
+  .tabbar
+    .scroll-container
+      .scroller(style="width: " + views.length * 68 + "px")    
+        - for( var i=0; i<views.length; i++)
+          a(href="/" + app + "/" + views[i].uri )
+            .view
+            p #{views[i].navigationTitle}
+    .leftarrow.disabled
+    - if( views.length > 4 )
+      .rightarrow
+    - else
+      .rightarrow.disabled
+     
+p.qr-instructions
+  | Scan with a <a href="http://support.brightcove.com/en/docs/previewing-template-workshop-app">Brightcove Workshop</a> to
+  | view this template on a device
+  
+p.tabbar-instructions
+  | Click a view to load it in your desktop browser
+script(src="/javascripts/ZeroClipboard.js")
+script(src="http://code.jquery.com/jquery-1.7.2.min.js")
+script(src="/javascripts/scan.js")

@@ -1,0 +1,9 @@
+{
+    "name": "appcloud",
+    "version": "0.0.1",
+    "description": "A lightweight web server to developer your App Cloud apps against, along with scaffolding to generate your apps.",
+    "preferGlobal": "true",
+    "bin": { "app-cloud": "appcloud.js" },
+    "author": "Hack Sparrow ",
+    "engines": { "node": "*" },
+}
