@@ -1,0 +1,55 @@
+===== page-container-tmpl
+<div class="fixed-header-container">
+  <div class="fixed-header-theme header-background-image">
+    <div class="logo header-logo-image"></div>
+  </div>
+</div>
+<div class='page page-active blog'>
+  <header class="header">
+    {{if showBackToMoreSection}}
+      <div class="back-button"></div>
+    {{/if}}
+  </header>
+  <div class="drop-shadow"></div>
+  <div class='scroller'>
+    <div class='list-container'></div>
+    {{spinner}}
+  </div>
+</div>
+<div class='page blog-entry-detail'>
+  <header class="header">
+    <div class="back-button"></div>
+  </header>
+  <div class='scroller'>
+    <div class='list-container'></div>
+  </div>
+</div>
+
+===== error-msg-tmpl
+<h3 class='header-b error-message'>{{error}}</h3>
+
+===== list-items-tmpl
+<ul>
+  {{items}}
+    {{if newDivider}}
+      <li class='list-divider background-b header-a'>{{pubDate|formatDate}}</li>
+    {{/if}}
+    <li data-bc-entry-id={{#}} class='blog-entry background-a border-a'>
+      {{if media_thumbnail_url|defined}}
+        <div class="thumbnail-container" style="background-image: url('http://transcode.appcloud.brightcove.com/?image={{media_thumbnail_url}}&width=120')"></div>
+      {{/if}}
+      <div class='details'>
+        <h2 class='header-b listItemTitleTextColor'>{{title}}</h2>
+        <p class='desc-a listItemDateTextColor'>{{pubDate|formatDate}}</p>
+      </div>
+      <div class='arrow'></div>
+    </li>
+  {{/items}}
+</ul>
+
+===== detail-page-tmpl
+<div class='page-content listDetailBackgroundImage'>
+  <h1 class='header-b listDetailTitleTextColor'>{{title}}</h1>
+  <p class='desc-b'>{{posted_on_msg}} {{pubDate|formatDate}}</p>
+  <div class='post desc-a listDetailPostTextColor'>{{description}}</div>
+</div>

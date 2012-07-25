@@ -4,9 +4,7 @@ var fs = require('fs');
 var sys = require('util');
 var request = require('request');
 var AdmZip = require('adm-zip');
-// var md = require('node-markdown').Markdown;
 var marked = require('marked');
-
 
 function getNameFromPath( pth ) {
   var name;
@@ -16,7 +14,7 @@ function getNameFromPath( pth ) {
 
 function isDemoApp( pth ) {
   var name = pth.split( "manifest.json" )[0];
-  return fs.existsSync( path.join( global.baseDir, "public", name, ".demo.txt" ) );
+  return path.existsSync( path.join( global.baseDir, "public", name, ".demo.txt" ) );
 }
 
 function getDemos( res ) {
@@ -68,28 +66,49 @@ function getDemos( res ) {
 exports.index = function(req, res) {
   var listOfApps = wrench.readdirSyncRecursive( path.join( global.baseDir, 'public') );
   var apps = [];
+  var demoApps = [];
   var demosDownloaded = false;
+  var placeHolderLen;
   
   for( var i=0, len=listOfApps.length; i<len; i++) {
     if( listOfApps[i].indexOf( "manifest.json" ) > -1 ) {
-      apps.push( 
-        { 
-          name: getNameFromPath( listOfApps[i] ),
-          demo: isDemoApp( listOfApps[i] )
-        } );
-    }
-    
-    if( listOfApps[i].indexOf( ".demo.txt" ) > -1 ) {
-      demosDownloaded = true;
+      if( isDemoApp( listOfApps[i] ) ) {
+        demoApps.push( 
+          { 
+            name: getNameFromPath( listOfApps[i] )
+          }
+        );
+      } else {
+        apps.push( 
+          { 
+            name: getNameFromPath( listOfApps[i] ),
+            placeholder: false
+          } 
+        );
+      }
     }
   }
+  
+  //We want the apps to have placeholders to finish the row
+  if( apps.length % 4 ) {
+    placeHolderLen = 4 - apps.length % 4;
+    console.log( placeHolderLen );
+    for( i=0; i<placeHolderLen; i++ ) {
+      apps.push( 
+        {
+          name: "",
+          placeholder: true
+        }
+      )
+    }
+  } 
 
   res.render(
     'index', 
     { 
       title: 'App Cloud',
       apps: apps,
-      demosDownloaded: demosDownloaded
+      demos: demoApps
     }
   );
 };

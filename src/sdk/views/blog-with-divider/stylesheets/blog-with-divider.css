@@ -1,0 +1,57 @@
+/*
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ */
+ 
+.list-divider {
+  padding: 5px;
+  line-height: 20px;
+  font-weight: bold;
+  text-shadow: 0 -1px 1px #3b3b3b;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpEMDc1N0Y3NjI4MjA2ODExQjg5MUY5OUYwQUFEMDI1OCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFQThDQkVBRTdCQzcxMUUxQUE5NkNBODMzNkRBREQ1OCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFQThDQkVBRDdCQzcxMUUxQUE5NkNBODMzNkRBREQ1OCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDg4MDExNzQwNzIwNjgxMTlFRUNCRjVDMzZFNjZGOUYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDA3NTdGNzYyODIwNjgxMUI4OTFGOTlGMEFBRDAyNTgiLz4gPC9yZGY6RGVzY3Jp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);
+}
+
+.list-divider-a { background-color: #cf5a14; color: #ffffff; height: 32px; line-height: 32px; padding-left: 5px; font-size: 14px; font-weight: bold; }
+.list-divider-b { 
+  background-color: #cf5a14; 
+  color: #ffffff; 
+  height: 32px; line-height: 32px; padding-left: 5px; font-size: 14px; font-weight: bold; }
+.list-divider-c { background-color: #cf5a14; color: #ffffff; height: 32px; line-height: 32px; padding-left: 5px; font-size: 14px; font-weight: bold; }
+
+.blog-entry {
+  height: auto;
+}
+
+.blog-entry .thumbnail-container {
+  width: 70px;
+  height: 53px;
+  background-position: center center;
+  -webkit-box-shadow: 0px 2px 5px rgba( 0,0,0,.7);
+}
+
+.blog-entry .details {
+  margin-left: 10px;
+}
+
+.blog-entry .arrow {
+  height: 13px;
+  width: 10px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -7px;
+}

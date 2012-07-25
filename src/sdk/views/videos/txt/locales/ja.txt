@@ -1,0 +1,4 @@
+# videos view
+videos_msg=動画
+list_of_playlists_title=プレイリスト
+list_of_videos_title=動画

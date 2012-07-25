@@ -1,0 +1,7 @@
+      {
+          "navigationTitle": "${title}",
+          "navigationIcon": "images/icons/${title}.png",
+          "uri": "./html/${title}.html",
+          "locales": "./txt/locales/en.txt",
+          "markup": "./txt/markup/${title}.txt"
+      },

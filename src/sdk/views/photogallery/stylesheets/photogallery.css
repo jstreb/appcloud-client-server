@@ -1,0 +1,172 @@
+/*
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ */
+ 
+.error-message {
+  font-weight: normal;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  margin-top: -100px;
+}
+
+.offscreen {
+  position: absolute;
+  left: -10000px;
+}
+
+.gridBackgroundColor {
+   background-color: #F2F2F2;
+}
+
+.drop-shadow {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAYAAABP2FU6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Mzg3RUZDRDFGREIxMTFFMDk3RTg5OEM4Qzc2MTA3MzkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Mzg3RUZDRDJGREIxMTFFMDk3RTg5OEM4Qzc2MTA3MzkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozODdFRkNDRkZEQjExMUUwOTdFODk4QzhDNzYxMDczOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozODdFRkNEMEZEQjExMUUwOTdFODk4QzhDNzYxMDczOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqIMCpoAAAAYSURBVHjaYvD19f3PAAS+zCASRPwCCDAAJLgDNGI48cEAAAAASUVORK5CYII=);
+  height: 4px;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-color: transparent;
+  position: absolute;
+  top: 44px;
+  z-index: 10;
+}
+
+.photo-gallery-thumbnail-grid .thumb-wrapper {
+  margin: 2px;
+  display: inline-block;
+  position: relative;
+}
+
+.photo-gallery-thumbnail-grid .thumbnail {
+  -webkit-transition: opacity 200ms ease-in 200ms;
+  opacity: 0;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-shadow: 0px 2px 5px rgba( 0,0,0,.7);
+}
+
+.photo-gallery-thumbnail-grid .thumbnail.show {
+  opacity: 1;
+}
+
+/*********************************
+ * Slideshow page
+ ********************************/
+  
+  .slideshow-page {
+    background-color: #000;
+  }
+  
+  .slideshow-page .slider {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  
+  .slideshow-page .header {
+    background-image: none;
+    background-color: rgba( 0, 0, 0, .7 );
+  }
+  
+  .slideshow-page .overlay-header {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    background-color: rgba( 0, 0, 0, .7 );
+    opacity: 1;
+    -webkit-transition: opacity 200ms ease-in 200ms;
+  }
+  
+  .slideshow-page .overlay-header.hide {
+    opacity: 0;
+  }
+  
+  .slideshow-page .overlay-description {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    color: #fff;
+    background-color: rgba( 0, 0, 0, .7 );
+    opacity: 1;
+    -webkit-transition: opacity 200ms ease-in 200ms;
+  }
+  
+  .slideshow-page .overlay-description p {
+    margin: 10px;
+  }
+  
+  .slideshow-page .overlay-description.hide {
+    opacity: 0;
+  }
+  
+  .slideshow-page .slideshow-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  .slideshow-page .slider > div {
+    height: 100%;
+  }
+ 
+  .slideshow-page .image-wrapper {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+  .slideshow-page .image-wrapper.hidden {
+    visibility: hidden; 
+  }
+  
+  .slideshow-page .image-wrapper p {
+    position:absolute;
+    text-align: center;
+    width: 100%;
+    line-height: 30px;
+    font-size: 14px;
+    top: 50%;
+    margin-top: -15px;
+    color: #ffffff;
+  }
+  
+  .slideshow-page .portrait {
+    height: 100%;
+    text-align: center;
+  }
+ 
+  .slideshow-page .landscape {
+    width: 100%;
+    position: absolute;
+   	top: 50%;
+  }
+
+  .slideshow-page .image-wrapper img {
+    opacity: 1;
+    -webkit-transition: opacity 300ms ease-in;
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  
+  .slideshow-page .image-wrapper.hidden img {
+    opacity: 0;
+  }

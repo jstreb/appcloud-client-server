@@ -1,0 +1,85 @@
+===== page-container-tmpl
+{{windowWidth|set>windowWidth}}
+<div class="fixed-header-container">
+  <div class="fixed-header-theme">
+    <div class="logo"></div>
+  </div>
+</div>
+<header class='header'>
+  {{if showBackButton}}
+    <div class="back-button"></div>
+  {{/if}}
+</header>
+<section class='page-scroller backgroundColor' style='height: {{height}}px'>
+  <div class='wrapper' style='width: {{wrapperWidth}}px'>
+    {{articles}}
+      {{if #|mod>5|equals>0}}
+        {{if #|notequals>0}}
+          </section>
+        {{/if}}
+        <section class='tablet-screen layout-style-{{description|layoutStyle}}' style='width: {{windowWidth}}px'>
+      {{/if}}
+          <div class='zone border-a zone{{#|setZone}}' data-bc-index='{{#}}'>
+            <h1 class="header-b headerTextColor">{{title}}</h1> 
+            {{description|findImageInDOM}}
+            <p>{{description|getText}}</p>
+          </div>
+    {{/articles}}
+    {{if articles.length|mod>ARTICLES_PER_PAGE|notequals>0}}
+      </section>
+    {{/if}}
+  </div>
+</section>
+<div class='pagination-container'>
+  <ul style='width: {{pages|length|times>30 /}}px'>
+    {{pages}}
+      {{if #|first}}
+        <li class='page-indicator background-b border-b active'></li>
+      {{else}}
+        <li class='page-indicator background-a border-a'></li>
+      {{/if}}
+    {{/pages}}
+  </ul>
+</div>
+
+===== story-board-tmpl
+<div class='storyboard'>
+  <div class='container fullArticleBackgroundColor' style='width: {{width}}px; height: {{height}}px'>
+    <header>
+      <div class='button close button-a'>{{close_msg}}</div>
+      <div class='button font-size button-a'>
+        <span class='large'>{{a_msg}}</span>
+        <span class='small'>{{a_msg}}</span>
+      </div>
+      <a class='button web button-a' href='{{link}}'>{{web_msg}}</a>
+      <div class='button page-up button-a'>
+        <div class='arrow'></div>
+      </div>
+      <div class='button page-down button-a'>
+        <div class='arrow'></div>
+      </div>
+    </header>
+    <div class='overlay'></div>
+  </div>
+</div>
+
+===== story-board-article-tmpl
+<div class='article-container article-scroller'>
+  <article class='desc-a fullArticleTextColor'> 
+    <h1 class='header-c fullArticleHeaderTextColor'>{{article.title}}</h1>
+    <h4 class='header-b fullArticleAuthorTextColor' >
+      <span class='desc-b'>{{author_msg}}: </span> {{article.dc_creator}}
+    </h4>
+    <h5 class='fullArticleDateTextColor'>{{article.pubDate|formatDate}}</h5>
+    <div class='article {{fontSizePreference}}'>{{article.description}}</div>
+  </article>
+</div>
+
+===== font-overlay-tmpl
+<div class='text-overlay' style='left: {{x}}px; top: {{y}}px' >
+  <ul>
+    <li class='small {{fontSizePreference|isSelected>small}}' data-bc-font-size='small'>{{small_msg}}</li>
+    <li class='medium {{fontSizePreference|isSelected>medium}}' data-bc-font-size='medium'>{{medium_msg}}</li>
+    <li class='large {{fontSizePreference|isSelected>large}}' data-bc-font-size='large'>{{large_msg}}</li>
+  </ul>
+</div>

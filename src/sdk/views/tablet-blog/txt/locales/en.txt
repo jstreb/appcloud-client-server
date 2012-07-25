@@ -1,0 +1,8 @@
+#tablet blog view
+web_msg=web
+close_msg=Close
+author_msg=Author
+small_msg=Small
+medium_msg=Medium
+large_msg=Large
+a_msg=A

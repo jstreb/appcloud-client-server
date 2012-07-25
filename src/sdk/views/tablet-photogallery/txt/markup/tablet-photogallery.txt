@@ -1,0 +1,45 @@
+===== page-container-tmpl
+<div class="fixed-header-container">
+  <div class="fixed-header-theme">
+    <div class="logo"></div>
+  </div>
+</div>
+<div class='page thumbnail-grid-page'>
+  <header class="header">
+    {{if showBackToMoreSection}}
+      <div class="back-button"></div>
+    {{/if}}
+  </header>
+  <div class='drop-shadow'></div>
+  {{if os|equals>ios}}
+    <section class='scroller gridBackgroundColor'>
+      <div class='thumbnail-container'><div>
+    </section>
+  {{else}}
+    <section class='scroller gridBackgroundColor radial-background'>
+      <div class='thumbnail-container'><div>
+    </section>
+  {{/if}}
+</div>
+<div class='page slideshow-page'></div>
+
+===== thumbnail-grid-tmpl
+{{photos}}
+<div class='thumb-wrapper' style='width: {{maxDimension}}px; height: {{maxDimension}}px'><img src='http://transcode.appcloud.brightcove.com/?image={{media_content_url}}&max_dimension={{maxDimension}}' alt='thumb' class='thumbnail' data-bc-index='{{#}}' /></div>
+{{/photos}}
+
+===== slideshow-tmpl
+<div class='slideshow-container slider'>
+  <div style='width: {{slideShowWidth}}px'>
+    {{photos}}<div id='{{#}}_wrapper' data-bc-index='{{#}}' style='width:{{windowWidth}}px' class='hidden image-wrapper sliderBackgroundColor' data-image="http://transcode.appcloud.brightcove.com/?image={{media_content_url}}&max_dimension={{maxDim}}"></div>{{/photos}}
+  </div>
+</div>
+<div class='overlay-header'>
+  <header class="header">
+    <div class="back-button"></div>
+    <h1 class="header-a ellipsis">{{headerText}}</h1>
+  </header>
+</div>
+<div class='overlay-description'>
+  <p class='descriptionTextColor'>{{description|stripTags}}</p>
+</div>

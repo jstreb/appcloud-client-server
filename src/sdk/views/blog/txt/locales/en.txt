@@ -1,0 +1,2 @@
+#blog view
+posted_on_msg=Posted on

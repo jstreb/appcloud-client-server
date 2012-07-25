@@ -1,0 +1,86 @@
+===== page-container-tmpl
+<div class="fixed-header-container">
+  <div class="fixed-header-theme">
+    <div class="logo"></div>
+  </div>
+</div>
+<div class='page list-of-playlists'>
+  <header class="header">
+    {{if showBackToMoreSection}}
+      <div class="back-button"></div>
+    {{/if}}
+  </header>
+  {{if os|equals>android}}
+    <section class="scroller">
+  {{else}}
+    <section class="texture-background scroller">
+  {{/if}}
+    <ul class='playlist-list'></ul>
+    {{spinner}}
+  </div>
+</div>
+<section id='playlist_{{index}}' class='list-of-videos page'>
+  <header class="header">
+    <div class="back-button"></div>
+  </header>
+  {{if os|equals>android}}
+    <div class="videos-page"></div>
+  {{else}}
+    <div class="videos-page texture-background"></div>
+  {{/if}}
+</section>
+
+===== list-of-playlists-tmpl
+{{width|set>width}}
+{{height|set>height}}
+{{imageHeight|set>imageHeight}}
+{{playlists}}
+  <li class="set-width-and-height-js playlist-list-item" style="width: {{width}}px; height: {{height}}px" data-bc-playlist-idx={{#}}>
+    <img class='set-width-and-height-js' src='{{videos|imgForPlaylist}}' style='width:{{width}}px; height:{{imageHeight}}px'/>
+    <div class="summary">
+      <p class="desc-b playlistThumbTitleColor">{{name}}</p>
+      <p class="desc-a playlistThumbNumberOfVideosColor">{{videos.length}} {{videos_msg}}</p>
+      <div class="play-icon"></div>
+    </div>
+  </li>
+{{/playlists}}
+
+===== video-player-tmpl
+<div class="player-frame" style="width:{{playerContainerWidth}}px; height:{{playerContainerHeight}}px">
+  <object id='myExperience' class='BrightcoveExperience'>
+    <param name='bgcolor' value='#000000' />
+    <param name='width' value='{{playerWidth}}' />
+    <param name='height' value='{{playerHeight}}' />
+    <param name='playerID' value='{{playerID}}' />
+    <param name='playerKey' value='{{playerKey}}' />
+    <param name='isVid' value='true' />
+    <param name='isUI' value='true' />
+    <param name='dynamicStreaming' value='true' />
+    <param name='@videoPlayer' value='{{video.id}}' />
+  </object>
+  {{if brightcoveDefined}}
+    <script type='text/javascript'>brightcove.createExperiences();</script>
+  {{/if}}
+  <h3 class="header-a ellipsis">{{video.name}}</h3>
+</div>
+
+===== video-detail-tmpl
+<div class="player-container vertical-center">
+  {{videoplayer}}
+</div>
+<div class="thumb-strip-container vertical-center">
+  <div id="thumb-strip">
+    <ul style="width: {{thumbStripWidth}}px">
+    {{playlist.videos}}
+      {{if #|first}}
+        <li data-bc-video-idx="{{#}}" data-video-url="FLVURL" class="active selectedVideoBorderColor">
+      {{else}}
+        <li data-bc-video-idx="{{#}}" data-video-url="FLVURL">
+      {{/if}}  
+          <img src="{{videoStillURL}}" class="thumbnail" />
+          <h4 class="header-a ellipsis videoNameColor">{{name}}</h4>
+        </li>
+    {{/playlist.videos}}
+    </ul>
+  </div>
+</div>

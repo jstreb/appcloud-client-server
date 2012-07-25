@@ -1,4 +1,0 @@
-===== gallery
-{{images}}
-    <img src="../images/placeholder.png" width="{{width}}" height="{{height}}" data-src="{{src}}" />
-{{/images}}

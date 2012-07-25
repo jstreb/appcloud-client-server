@@ -1,0 +1,8 @@
+#tablet blog view
+web_msg=web
+close_msg=閉じる
+author_msg=作成者
+small_msg=小
+medium_msg=中
+large_msg=大
+a_msg=A

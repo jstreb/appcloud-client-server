@@ -1,0 +1,159 @@
+/*
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ */
+ 
+.error-message {
+  font-weight: normal;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  margin-top: -100px;
+}
+
+.drop-shadow {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAYAAABP2FU6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Mzg3RUZDRDFGREIxMTFFMDk3RTg5OEM4Qzc2MTA3MzkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Mzg3RUZDRDJGREIxMTFFMDk3RTg5OEM4Qzc2MTA3MzkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozODdFRkNDRkZEQjExMUUwOTdFODk4QzhDNzYxMDczOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozODdFRkNEMEZEQjExMUUwOTdFODk4QzhDNzYxMDczOSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqIMCpoAAAAYSURBVHjaYvD19f3PAAS+zCASRPwCCDAAJLgDNGI48cEAAAAASUVORK5CYII=);
+  height: 4px;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-color: transparent;
+  position: absolute;
+  top: 44px;
+  z-index: 10;
+}
+
+/******************
+ * List of blog entries
+ *****************/
+h1 {
+  font-size: 20px; 
+  font-weight: bold;
+}
+ 
+.blog-entry {
+  display: -webkit-box;
+  padding: 10px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  position: relative;
+  clear: both;
+  overflow: hidden;
+  height: 50px;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(.7, #fff), color-stop(1, #ededed) )
+}
+
+.blog-entry:active {
+  background-color: #ccc;
+  background-image: none;
+}
+
+.blog-entry .details {
+  -webkit-box-flex: 1;
+  padding-top: 7px;
+}
+
+.blog-entry h2 {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.blog-entry p {
+	font-size: 13px;
+	line-height: 18px;
+}
+
+.blog-entry .arrow {
+  -webkit-box-flex: 0;
+  height: 100%;
+  width: 30px;
+}
+
+@media screen and (orientation:portrait) {
+  .featured-image {
+    width: 100%;
+    position: relative;
+    padding: 0px;
+    overflow: visible;
+  }
+  
+  .featured-image .details {
+    padding: 10px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba( 0,0,0,.5);
+    height: 50px;
+  }
+
+  .featured-image:active .details {
+    background-color: rgba( 37,121,175,.5);
+  }
+
+  .featured-image h2 {
+    color: #fff;
+    padding-top: 7px;
+  }
+
+  .featured-image p {
+    color: #fff;
+  }
+
+  .featured-image .arrow {
+    position: absolute;
+    right: 10px;
+    height: 70px;
+    bottom: 0px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAYCAYAAAD3Va0xAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDRTM4Q0E4MTczOTUxMUUxQTBBNkZBMkYwNjk2MjI1MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDRTM4Q0E4MjczOTUxMUUxQTBBNkZBMkYwNjk2MjI1MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNFMzhDQTdGNzM5NTExRTFBMEE2RkEyRjA2OTYyMjUwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNFMzhDQTgwNzM5NTExRTFBMEE2RkEyRjA2OTYyMjUwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+t3YSDwAAAI5JREFUeNpi/P//PwM1AOOoQUPQIAaQQXiwEBAvAGJ9AuoYCBmy4z8C6JNrkPV/VPATn2H4DNL/jwlwGkYojIg2jJBBRBtGjEG4DHsOxGwwNUxEphIhLGJfSElHIOyIwzUqpHiNKEMIGWRKrCGkJkichhAyiAeI10ANeYvPEGLCCGRYHyFDQHgYF2wAAQYAotEPQoDskn8AAAAASUVORK5CYII=);
+  }
+}
+
+
+@media screen and (orientation:landscape) {
+  .featured-image {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(.7, #fff), color-stop(1, #ededed) ) !important;
+    height: 50px !important;
+  }
+}
+/******************
+ * Blog Entry Detail
+ *****************/
+
+ .blog-entry-detail .page-content h1 {
+   font-size: 24px;
+   line-height: 24px;
+   font-weight: lighter;
+   margin-bottom: 5px;
+ }
+ 
+ .blog-entry-detail .page-content {
+   padding: 20px;
+   background-color: #fff; 
+ }
+ 
+ .blog-entry-detail .post {
+   padding-top: 15px;
+ }
+ 
+ .blog-entry-detail p {
+   font-size: 14px;
+   line-height: 20px;
+ }
+ 
+ .blog-entry-detail video {
+   width: 90%;
+ }

@@ -1,0 +1,2 @@
+#blog with divider view
+posted_on_msg=投稿日

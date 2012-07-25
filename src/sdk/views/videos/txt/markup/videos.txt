@@ -1,0 +1,72 @@
+===== page-container-tmpl
+<div class="fixed-header-container">
+  <div class="fixed-header-theme header-background-image">
+    <div class="logo header-logo-image"></div>
+  </div>
+</div>
+<div class='page list-of-playlists'>
+  <header class="header">
+    {{if showBackToMoreSection}}
+      <div class="back-button"></div>
+    {{/if}}
+  </header>
+  <div class='scroller'>
+    <ul class='ul-listview'></ul>
+    {{spinner}}
+  </div>
+</div>
+<div class='page list-of-videos'>
+  <header class="header">
+    <div class="back-button"></div>
+  </header>
+  <div class='scroller'>
+    <ul class='ul-listview'></ul>
+  </div>
+</div>
+<div class='page video-details'>
+  <header class="header">
+    <div class="back-button"></div>
+  </header>
+  <div class='scroller'>
+    <div></div>
+  </div>
+</div>
+
+===== list-of-playlists-tmpl
+{{playlists}}
+  <li id="{{name}}" data-index={{#}} class="playlist cellBackgroundColor" style="height:{{videos|heightOfImage}}px; width:{{videos|widthOfLI}}px">
+    <div class="image"style="background: url(http://transcode.appcloud.brightcove.com/?image={{videos|imgForPlaylist}}&width={{videos|widthOfImage}})">
+    <h4 class="playlist-name">{{name}}</h4>
+    </div>
+  </li>
+{{/playlists}}
+
+===== list-of-videos-tmpl
+{{videos}}
+  <li class='video background-a border-a cellBackgroundColor' data-bc-video-id='{{id}}' data-video-url='{{FLVURL}}'>
+    <img src='{{thumbnailURL}}' class='thumbnail border-a' />
+    <div class='details'>
+      <h2 class='header-b ellipsis videoTitleColor'>{{name}}</h2>
+      <p class='desc-a ellipsis videoDescriptionColor'>{{shortDescription}}</p>
+    </div>
+    <div class='arrow'></div>
+  </li>
+{{/videos}}
+
+===== video-details-tmpl
+<div>
+  {{if brightcoveCompatible}}
+    <div class='player-container'>
+    </div>
+  {{else}}
+    <div class='player-container' style='height: {{height}}px'>
+      <img src='{{video.videoStillURL}}' alt='still' class='offscreen' />
+      <div class='play-icon'></div>
+      <video class='video-offscreen' x-webkit-airplay='allow' controls='controls' src='{{video.FLVURL}}' poster='{{video.videoStillURL}}'></video>
+    </div>
+  {{/if}}
+  <div class='details-container'>
+    <h2 class='header-b detailTitleColor'>{{video.name}}</h2>
+    <p class='desc-a detailDescriptionColor'>{{video.shortDescription}}</p>
+  </div>
+</div>

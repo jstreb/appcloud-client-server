@@ -7,7 +7,7 @@
   function registerEventListeners() {
     $.SyntaxHighlighter.init( { lineNumbers: false } );
     $( ".download" ).click( handleDownload );
-    $( ".details" ).click( showDetails );
+    $( ".readme" ).click( showDetails );
     $( ".close" ).click( hideDetails );
   }
   

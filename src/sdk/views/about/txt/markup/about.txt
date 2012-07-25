@@ -1,0 +1,22 @@
+===== page-container-tmpl
+<div class="fixed-header-container">
+  <div class="fixed-header-theme header-background-image">
+    <div class="logo header-logo-image"></div>
+  </div>
+</div>
+<div class='page page-active'>
+  <header class="header">
+    {{if showBackToMoreSection}}
+      <div class="back-button"></div>
+    {{/if}}
+  </header>
+  <div class="drop-shadow"></div>
+  <div class='scroller'>
+    <div class='content-container'></div>
+    {{spinner}}
+  </div>
+</div>
+
+===== content-tmpl
+<h2 class="header-b">{{name}}</h2>
+<p class="desc-a">{{text}}</p>
