@@ -54,6 +54,10 @@ app.get('/demos', routes.getDemos );
 
 app.get('/demo/details/:name', routes.getDemoDetails );
 
+app.get('/app/newview', routes.newViewPartial );
+
+app.post('/app', routes.newApp );
+
 app.listen(3773, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });

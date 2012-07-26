@@ -5,6 +5,7 @@ var sys = require('util');
 var request = require('request');
 var AdmZip = require('adm-zip');
 var marked = require('marked');
+var exec = require('child_process').exec;
 
 function getNameFromPath( pth ) {
   var name;
@@ -63,12 +64,18 @@ function getDemos( res ) {
   });
 }
 
+function createApp( data, cb ) {
+  console.log( __dirname );
+  exec( 'appcloud -a -n ' + data.appName + ' -v ' + data.viewNames.join() + ' -p ' + path.join( __dirname, "..", "public" ), cb );
+}
+
 exports.index = function(req, res) {
   var listOfApps = wrench.readdirSyncRecursive( path.join( global.baseDir, 'public') );
   var apps = [];
   var demoApps = [];
   var demosDownloaded = false;
   var placeHolderLen;
+  var mod;
   
   for( var i=0, len=listOfApps.length; i<len; i++) {
     if( listOfApps[i].indexOf( "manifest.json" ) > -1 ) {
@@ -89,10 +96,11 @@ exports.index = function(req, res) {
     }
   }
   
+  mod = ( apps.length === 0 ) ? 0 : apps.length % 4;
+  console.log( mod );
   //We want the apps to have placeholders to finish the row
-  if( apps.length % 4 ) {
-    placeHolderLen = 4 - apps.length % 4;
-    console.log( placeHolderLen );
+  if( apps.length === 0 || mod > 0 ) {
+    placeHolderLen = 4 - mod;
     for( i=0; i<placeHolderLen; i++ ) {
       apps.push( 
         {
@@ -157,4 +165,16 @@ exports.getDemoDetails = function( req, res ) {
   }
   
   res.send( { status: "error" } );
+};
+
+exports.newApp = function( req, res ) {
+  var data = req.body;
+  createApp( data, function() {
+    res.send( { "status": "success" } );
+  });
+};
+
+exports.newViewPartial = function( req, res ) {
+  console.log( "got request" );
+  res.render( 'partials/app/_viewname', { layout: false } );
 }

@@ -1,5 +1,7 @@
 ( function( $, undefined ) {
-  var $readmeContainer; 
+  var $readmeContainer;
+  var $newAppForm;
+  
   $( document ).ready( function() {
     registerEventListeners();
   });
@@ -8,7 +10,11 @@
     $.SyntaxHighlighter.init( { lineNumbers: false } );
     $( ".download" ).click( handleDownload );
     $( ".readme" ).click( showDetails );
-    $( ".close" ).click( hideDetails );
+    $( ".readme-container .close" ).click( hideDetails );
+    $( ".new-app" ).click( showAppForm );
+    $( ".new-app-form .close" ).click( hideAppForm );
+    $( ".new-app-form .submit" ).click( createApp );
+    $( ".new-app-form .add-view" ).click( addView );
   }
   
   function handleDownload() {
@@ -38,4 +44,62 @@
     $readmeContainer.fadeOut();
   }
   
+  function showAppForm() {
+    $newAppForm = $newAppForm || $( ".new-app-form" );
+    $newAppForm.fadeIn();
+  }
+  
+  function hideAppForm( cb ) {
+    $newAppForm.fadeOut( cb );
+  }
+  
+  function createApp() {
+    var $this = $( this );
+    var data = {
+      appName: $( "#app-name" ).val(),
+      viewNames: getViewValues()
+    };
+    
+    $this.text( "Creating..." );
+    
+    $.ajax( 
+      {
+        url: "/app",
+        type: "POST",
+        data: data
+      }
+    ).success( function() {
+          $this.text( "Created" );
+          setTimeout( function() {
+            hideAppForm( function() {
+              location.reload( true );
+            })
+          }, 300 );
+    })
+    
+  }
+  
+  function getViewValues() {
+    var ret = [];
+    $( ".view-name" ).each( function() {
+      ret.push( this.value );
+    });
+    
+    return ret;
+  }
+  
+  function addView() {
+    var $form = $newAppForm.find( "form" );
+    $.ajax(
+      {
+        url: "/app/newview",
+      }
+    ).success( function( html ) {
+      var $html = $( html );
+      $html.css( { display: 'none' } ).appendTo( $form ).fadeIn();
+    });
+
+
+  }
+
 })( jQuery );

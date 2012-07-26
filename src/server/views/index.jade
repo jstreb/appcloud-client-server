@@ -5,19 +5,17 @@
 
 .header-container
   h4 My Apps
-  a(href="#") New App
+  a.new-app(href="#") New App
 ul
   - for( var i=0; i<apps.length; i++ )
     - if( apps[i].placeholder )
       li.app
-        img(src="/images/emptyapp-icon.png")
+        img(src="/images/placeholder.png")
     - else
       li.app(data-name=apps[i].name)
         a(href="/scan/" + apps[i].name)
           img(src="/images/icon.png")
           p #{apps[i].name}
-br
-br
 
 .header-container
   h4 Demo Apps
@@ -32,11 +30,26 @@ br
           img(src="/images/teaching-icon.png")
         p #{demos[i].name}
         p.readme Read Me
-- else 
-  .download Download the Demos!
+- else
+  br
+  br
+  .btn.download Download the Demos!
 
-.readme-container
+.overlay-container.readme-container
   .contents
+  .close
+
+.overlay-container.new-app-form
+  .contents
+    form
+      h4 App Name:
+      input(type="text", id="app-name")
+      
+      !=partial('partials/app/_viewname')
+      
+    .button-container
+      .btn.add-view Add View
+      .btn.submit Submit
   .close
 
 script(src="http://code.jquery.com/jquery-1.7.2.min.js")

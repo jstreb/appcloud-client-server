@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 
 var pth = require( "path" );
+var spawn = require( "child_process" ).spawn;
+
 var program = require("commander");
 var server = require("./src/commandline/server" );
 var app = require("./src/commandline/app");
@@ -14,7 +16,8 @@ function list( val ) {
 
 program
   .version('0.0.1')
-  .option( '-s, --create-server', 'Create the app cloud web server.' )
+  .option( '-c, --create-server', 'Create the app cloud web server.' )
+  .option( '-s, --start-server', 'Start the app cloud web server.' )
   .option( '-a, --create-app', 'Create a new app' )
   .option( '-n, --app-name [appName]', 'The name of the application')
   .option( '-v, --views [views]', 'A list of views to auto-generate', list, ["view1", "view2"] )
@@ -53,4 +56,8 @@ if( program.createApp ) {
   app.createApplication( program.appName, program.views, appPath );
 }
 
+if( program.startServer ) {
+  console.log( "starting" );
+  spawn( "node.js", [pth.join( program.serverPath, "appcloud-server", "app.js" )] );
+}
 console.log( "" );

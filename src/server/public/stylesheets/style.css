@@ -68,6 +68,7 @@ a:hover {
   height: 30px;
   width: 370px;
   margin: 30px auto 0px auto;
+  clear: both;
 }
 
 .header-container h4 {
@@ -134,9 +135,7 @@ br {
   clear: both;
 }
 
-.download {
-  display: inline;
-  clear: both;
+.btn {
   letter-spacing: -1px;
   border: 1px solid #176537;
   -webkit-border-radius: 4px;
@@ -148,19 +147,34 @@ br {
   font-weight: bold;
   -webkit-box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.25);
   cursor: pointer;
-  height: 30px;
+  height: 25px;
   letter-spacing: normal;
-  line-height: 30px;
+  line-height: 25px;
   padding: 10px 25px;
   text-shadow: rgba(0, 0, 0, 0.51) 0 -1px;
+}
+
+.btn:hover {
+  background-image: -webkit-linear-gradient(#b7d93b, #529e42);
+}
+
+.add-view {
+  float: left;
+  padding: 5px 20px;
+}
+
+.submit {
+  float: right;
+  padding: 5px 20px;
+}
+
+.download {
+  display: inline;
+  clear: both;
   margin: 20px auto;
 }
 
-.download:hover {
-    background-image: -webkit-linear-gradient(#b7d93b, #529e42);
-}
-
-.readme-container {
+.overlay-container {
   width: 800px;
   height: 1024px;
   margin: auto;
@@ -182,7 +196,16 @@ br {
   padding: 30px;
 }
 
-.readme-container .close {
+.new-app-form {
+  width: 480px;
+  padding: 20px;
+  background-color: rgba( 0,0,0, .85);
+  height: auto;
+  left: 160px;
+  top: 95px;
+}
+
+.overlay-container .close {
   background-image: url(/images/close.png);
   width: 30px;
   height: 30px;
@@ -190,6 +213,33 @@ br {
   top: 10px;
   right: 10px;
   cursor: pointer;
+}
+
+.new-app-form .close {
+  background-image: url(/images/white-close-icon.png);
+  width: 15px;
+  height: 18px;
+}
+
+.new-app-form h4 {
+  color: white;
+  font-size: 14px;
+}
+
+.new-app-form input {
+  -webkit-box-shadow: rgba(200, 200, 200, 0.5) 1px 1px 1px inset;
+  background-color: white !important;
+  padding: 8px;
+  font-size: 18px;
+  color: #5B5B5B;
+  outline: none;
+  -webkit-border-radius: 3px;
+  border: 1px solid #C3C3C3;
+  width: 460px;
+}
+
+.button-container {
+  margin-top: 20px;
 }
 
 /** Scan page */
