@@ -4,6 +4,6 @@
     "description": "A lightweight web server to developer your App Cloud apps against, along with scaffolding to generate your apps.",
     "preferGlobal": "true",
     "bin": { "appcloud": "appcloud.js" },
-    "author": "Hack Sparrow ",
+    "author": "Jesse Streb",
     "engines": { "node": "*" }
 }

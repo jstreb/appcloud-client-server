@@ -57,7 +57,7 @@ if( program.createApp ) {
 }
 
 if( program.startServer ) {
-  console.log( "starting" );
+  console.log( "starting" );  
   spawn( "node.js", [pth.join( program.serverPath, "appcloud-server", "app.js" )] );
 }
 console.log( "" );

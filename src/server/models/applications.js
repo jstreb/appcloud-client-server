@@ -14,6 +14,7 @@ module.exports.getDemos = function() {
   
   for( var i=0; i<listOfApps.length; i++) {
     if( listOfApps[i].indexOf( "manifest.json" ) > -1 ) {
+      getPathToIcon( listOfApps[i] );
       name = getNameFromPath( listOfApps[i] );
       if( isDemoApp( listOfApps[i] ) ) {
         apps.push(

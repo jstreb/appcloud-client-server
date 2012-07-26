@@ -1,1 +1,1 @@
-module.exports.Application = require( "./application" );
+module.exports.Application = require( "./applications" );
