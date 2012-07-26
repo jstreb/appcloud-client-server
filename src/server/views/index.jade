@@ -8,7 +8,7 @@
   a.new-app(href="#") New App
 ul
   - for( var i=0; i<apps.length; i++ )
-    - if( apps[i].placeholder )
+    - if( apps[i].name === "" )
       li.app
         img(src="/images/placeholder.png")
     - else

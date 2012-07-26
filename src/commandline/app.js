@@ -38,7 +38,7 @@ module.exports.createApplication = function( name, views, pth ) {
   _views= views;
   _path = pth;
   
-  if( path.existsSync( path.join( path, name ) ) ) {
+  if( fs.existsSync( path.join( path, name ) ) ) {
     msg( "The " + name + " application already exists.  Please choose a new app name." );
     process.exit(1);
   }
