@@ -13,7 +13,7 @@ ul
         img(src="/images/placeholder.png")
     - else
       li.app(data-name=apps[i].name)
-        a(href="/scan/" + apps[i].name)
+        a(href="/app/" + apps[i].name)
           img(src="/images/icon.png")
           p #{apps[i].name}
 
@@ -26,7 +26,7 @@ ul
   ul
     - for( var i=0; i<demos.length; i++ )
       li.app(data-name=demos[i].name)
-        a(href="/scan/" + demos[i].name)
+        a(href="/app/" + demos[i].name)
           -if( demos[i].icon )
             img(src=demos[i].icon)
           -else

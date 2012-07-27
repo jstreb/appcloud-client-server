@@ -20,7 +20,7 @@
   function handleDownload() {
     $( this ).text( "Downloading..." );
     $.ajax( {
-      url: "/demos",
+      url: "/app/demos",
       success: function() { window.location.reload( true ) }
     });
   }
@@ -29,7 +29,7 @@
     var name = $( this ).closest( "li" ).data( "name" );
     $readmeContainer = $readmeContainer || $( ".readme-container" );
     $.ajax( {
-      url: "/demo/details/" + name,
+      url: "/app/demo/details/" + name,
     }).success( function( res ) {
       var $html = $( res.html );
       $html.find( "code" ).addClass( "highlight" );
@@ -92,7 +92,7 @@
     var $form = $newAppForm.find( "form" );
     $.ajax(
       {
-        url: "/app/newview",
+        url: "/app/_newview",
       }
     ).success( function( html ) {
       var $html = $( html );
