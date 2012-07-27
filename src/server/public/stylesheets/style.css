@@ -98,6 +98,11 @@ li.app {
   position: relative;
 }
 
+li.app img {
+  width: 60px;
+  height: 60px;
+}
+
 li p {
   text-align: center;
   color: #528F96;

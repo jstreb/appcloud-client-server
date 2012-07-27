@@ -11,17 +11,18 @@ module.exports.getDemos = function() {
   var listOfApps = wrench.readdirSyncRecursive( path.join( global.baseDir, 'public') );
   var apps = [];
   var name;
+  var icon;
   
   for( var i=0; i<listOfApps.length; i++) {
     if( listOfApps[i].indexOf( "manifest.json" ) > -1 ) {
-      getPathToIcon( listOfApps[i] );
       name = getNameFromPath( listOfApps[i] );
       if( isDemoApp( listOfApps[i] ) ) {
         apps.push(
           {
             name: name,
             demo: true,
-            readme: path.join( global.baseDir, "public", name, "README.md" )
+            readme: path.join( global.baseDir, "public", name, "README.md" ),
+            icon: getPathToIcon( path.join( global.baseDir, 'public', listOfApps[i] ), name )
           }
         );
       }
@@ -115,4 +116,46 @@ function getNameFromPath( pth ) {
   var name;
   dirs = pth.split( path.sep );
   return dirs[ dirs.length - 2 ];
+}
+
+function getPathToIcon( manifestPath, name ) {
+  var manifest = JSON.parse( fs.readFileSync( manifestPath ) );
+  var pubManifest;
+  var pathToPubManifest;
+  
+  if( typeof manifest.publishConfig === "object" ) {
+    try {
+      return manifest.publishConfig.android.images.icon;
+    } catch( e ) {
+      console.log( e );
+      return null;
+    }
+  }
+  
+  if( typeof manifest.publishConfig === "string" ) {
+    try {
+      pathToPubManifest = path.join( manifestPath.split( 'manifest.json')[0], manifest.publishConfig );
+      pubManifest = JSON.parse( fs.readFileSync( pathToPubManifest ) );
+      
+      return normalizePath( pathToPubManifest, pubManifest.android.images.icon );
+    } catch( e ) {
+      console.log( e );
+      return null;
+    }
+    
+  }
+  
+  return null;
+}
+
+function normalizePath( pathToPubManifest, iconPath ) {
+  var arr = pathToPubManifest.split( path.sep );
+  arr.pop();
+  pathToPubManifest = arr.join( "/" );
+  
+  //Need to make sure the seperator is '/' for the web, even on window.
+  arr = iconPath.split( path.sep );
+  iconPath = "/" + arr.join( "/" );
+  //var d = pathToPubManifest.split( "public" )[1];
+  return pathToPubManifest.split( "public" )[1] + iconPath;
 }

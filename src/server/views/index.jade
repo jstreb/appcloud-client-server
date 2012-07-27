@@ -27,7 +27,10 @@ ul
     - for( var i=0; i<demos.length; i++ )
       li.app(data-name=demos[i].name)
         a(href="/scan/" + demos[i].name)
-          img(src="/images/teaching-icon.png")
+          -if( demos[i].icon )
+            img(src=demos[i].icon)
+          -else
+            img(src="/images/teaching-icon.png")
         p #{demos[i].name}
         p.readme Read Me
 - else

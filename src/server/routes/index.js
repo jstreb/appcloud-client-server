@@ -4,25 +4,29 @@ var marked = require('marked');
 var Application = require('../models/').Application;
 
 exports.index = function(req, res) {
-  var apps = Application.getUsers();
-  var demos = Application.getDemos();
-  var mod = apps.length % 4;
-  var numOfPlaceHolders = 0;
-  
-  if( apps.length === 0 || mod > 0 ) {
-    numOfPlaceHolders = 4 - mod;
-    for( var i=0; i<numOfPlaceHolders; i++ ) {
-      apps.push( { name: "" } );
+  try {
+    var apps = Application.getUsers();
+    var demos = Application.getDemos();
+    var mod = apps.length % 4;
+    var numOfPlaceHolders = 0;
+
+    if( apps.length === 0 || mod > 0 ) {
+      numOfPlaceHolders = 4 - mod;
+      for( var i=0; i<numOfPlaceHolders; i++ ) {
+        apps.push( { name: "" } );
+      }
     }
+    res.render(
+      'index', 
+      { 
+        title: 'App Cloud',
+        apps: apps,
+        demos: demos
+      }
+    );
+  } catch( e ) {
+    res.render( "error", { title: "App Cloud Error Page"} );
   }
-  res.render(
-    'index', 
-    { 
-      title: 'App Cloud',
-      apps: apps,
-      demos: demos
-    }
-  );
 };
 
 exports.scan = function( req, res ) {
