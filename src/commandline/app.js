@@ -78,8 +78,6 @@ function copyInSDKFiles() {
 function generateManifestFile() {
   msg( "Generating the manifest.json file..." );
   var view;
-  var sampleManifest;
-  var OOTBView;
   var manifest = {
       "name": _name,
       "description": "Please provide a description for this template.",
@@ -111,31 +109,6 @@ function generateManifestFile() {
     manifest.views.push( view );
   }
   
-  // for( var i=0; i<OOTBViews.length; i++ ) {
-  //     sampleManifest = sampleManifest || getSampleManifest();
-  //     OOTBView = getViewFromManifest( OOTBViews[i].title, sampleManifest );
-  //     view = {
-  //       "navigationTitle": "" + OOTBViews[i].title + "",
-  //       "navigationIcon": "images/icons/" + OOTBViews[i].title + ".png",
-  //       "uri": "./html/" + OOTBViews[i].title + ".html",
-  //       "locales": "./txt/" + OOTBViews[i].assetfiles[0] + "/locales/en.txt",
-  //       "markup": "./txt/" + OOTBViews[i].assetfiles[0] + "/markup/" + OOTBViews[i].assetfiles[0] + ".txt"
-  //     };
-  //     
-  //     if( OOTBView.data !== undefined ) {
-  //       view.data = OOTBView.data;
-  //     }
-  //     
-  //     if( OOTBView.styles !== undefined ) {
-  //       view.styles = OOTBView.styles;
-  //     }
-  //     
-  //     if( OOTBView.settings !== undefined ) {
-  //       view.settings = OOTBView.settings;
-  //     }
-  //     
-  //     manifest.views.push( view );
-  //   }
   fs.writeFileSync( path.join( _path, _name, "manifest.json" ), JSON.stringify( manifest, null, 4) );
 }
 
