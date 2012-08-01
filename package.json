@@ -4,6 +4,13 @@
     "description": "A lightweight web server to developer your App Cloud apps against, along with scaffolding to generate your apps.",
     "preferGlobal": "true",
     "bin": { "appcloud": "appcloud.js" },
-    "author": "Jesse Streb",
-    "engines": { "node": "0.8.*" }
+    "author": {
+      "name": "Jesse Streb",
+      "email": "jesse.streb@gmail.com"
+    },
+    "engines": { "node": "0.8.*" },
+    "dependencies": {
+      "wrench": "1.3.9",
+      "commander": "1.0.0"
+    }
 }
