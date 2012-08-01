@@ -104,7 +104,11 @@ module.exports.getReadmeByAppName = function( name ) {
 };
 
 module.exports.createApp = function( data, cb ) {
-  exec( 'appcloud -a -n ' + data.appName + ' -v ' + data.viewNames.join() + ' -p ' + path.join( __dirname, "..", "public" ), cb );
+  for( var i=0, len = data.viewNames.length; i<len; i++) {
+    data.viewNames[i] = data.viewNames[i].replace(/ /g, "_");
+  }
+  
+  exec( 'appcloud -n ' + data.appName.replace(/ /g, "_") + ' -v ' + data.viewNames.join() + ' -p ' + path.join( __dirname, "..", "public" ), cb );
 }
 
 function isDemoApp( pth ) {

@@ -3,6 +3,63 @@ body {
   background: url(../images/bg-gradient.png) repeat-x;
   text-align: center;
   font-family: 'Helvetica Neue Medium', Arial, sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+.top-nav {
+  height: 40px;
+  background-color: #2C2C2C;
+  background-image: -webkit-linear-gradient(top, #333, #222);
+  background-image: -o-linear-gradient(top, #333, #222);
+  background-image: linear-gradient(top, #333, #222);
+  text-align: center;
+}
+
+.top-nav .wrapper {
+  margin: auto;
+  width: 1024px;
+}
+
+.top-nav ul {
+  list-style: none;
+  float: right;
+  margin: 0px 10px 0px 0px;
+  padding: 0px;
+}
+
+.top-nav li {
+  float: left;
+  margin: 0px;
+  line-height: 40px;
+}
+
+.top-nav li a {
+  padding: 0px 20px;
+  line-height: 40px;
+  color: #999;
+  text-decoration: none;
+  position: relative;
+  top: 0px;
+}
+
+.top-nav li a.last {
+  padding-right: 40px;
+}
+
+.top-nav li a img {
+  margin-top: -3px;
+  position: absolute;
+  top: -1px;
+  right: 0px;
+}
+
+.top-nav li a.active {
+  color: white;
+}
+
+.top-nav li a:hover {
+  color: white;
 }
 
 .hide {
@@ -32,12 +89,11 @@ h1 {
   margin: 0px;
   padding: 0px;
   text-align: center;
-  width: 800px;
-  margin: auto;
-  margin-bottom: 10px;
+  margin: 15px auto 20px auto;
 }
-.logo {
-  margin: auto;
+
+.logo-container img {
+  margin-top: 4px;
 }
 
 .strong-text {

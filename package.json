@@ -5,5 +5,5 @@
     "preferGlobal": "true",
     "bin": { "appcloud": "appcloud.js" },
     "author": "Jesse Streb",
-    "engines": { "node": "*" }
+    "engines": { "node": "0.8.*" }
 }
