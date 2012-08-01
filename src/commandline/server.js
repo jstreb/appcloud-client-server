@@ -12,12 +12,4 @@ module.exports.createServer = function( path ) {
   wrench.copyDirSyncRecursive(pth.join( __dirname, "..", "server" ), pth.join( path, "appcloud-server" ) );
   msg( "  The App Cloud web server is now located at " + pth.join( path, "appcloud-server" ) + "." );
   msg( "  To start the server run 'node.js " + pth.join( path, "appcloud-server", "app.js" ) );
-  
-  //Write the server path to a file on disk.
-  writePathOfServerToDisk( pth.join( path, "appcloud-server" ) );
-}
-
-function writePathOfServerToDisk( serverPath ) {
-  var fileContents = { "serverPath":  serverPath };
-  fs.writeFileSync( pth.join( global.pathOfExecutable, "serverPath.json" ), JSON.stringify( fileContents ), "utf8" );
 }
