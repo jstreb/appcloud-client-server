@@ -22,7 +22,7 @@ module.exports.getDemos = function() {
             name: name,
             demo: true,
             readme: path.join( global.baseDir, "public", name, "README.md" ),
-            icon: getPathToIcon( path.join( global.baseDir, 'public', listOfApps[i] ), name )
+            icon: getPathToIcon( path.join( global.baseDir, 'public', name, "manifest.json" ), name )
           }
         );
       }
@@ -108,8 +108,16 @@ module.exports.createApp = function( data, cb ) {
 }
 
 function isDemoApp( pth ) {
+
   var name = pth.split( "manifest.json" )[0];
-  return path.existsSync( path.join( global.baseDir, "public", name, ".demo.txt" ) );
+  var pth;
+  if( name.indexOf( path.join( global.baseDir, "public" ) ) > -1 ) {
+    pth = path.join( name, ".demo.txt" );
+  } else {
+    pth = path.join( global.baseDir, "public", name, ".demo.txt" );
+  }
+
+  return path.existsSync( pth );
 }
 
 function getNameFromPath( pth ) {
@@ -118,7 +126,7 @@ function getNameFromPath( pth ) {
   return dirs[ dirs.length - 2 ];
 }
 
-function getPathToIcon( manifestPath, name ) {
+function getPathToIcon( manifestPath ) {
   var manifest = JSON.parse( fs.readFileSync( manifestPath ) );
   var pubManifest;
   var pathToPubManifest;
