@@ -28,7 +28,7 @@ To see the options available to you run `appcloud -h`, which will print:
      -p, --app-path [path]     The path to put the generated application.  This should only be set if you wish to put the application somewhere other then within the packaged web server.
      -k, --sdk-version         The version of the App Cloud SDK.
      
-The typical flow for getting started is to simply run `appcloud -c`, to generate the appcloud packaged web server.  (A lightweight [express](http://expressjs.com/) web server).  After that if you `cd appcloud` and then run `node app.js`, you will start the appcloud web server.  When you first start the server it will look like:
+The typical flow for getting started is to simply run `appcloud -c`, to generate the appcloud packaged web server.  (A lightweight [express](http://expressjs.com/) web server).  After that `cd appcloud` and then run `npm install`, to install the necessary packages for the web server.  Once that completes run `node app.js`, which will start the appcloud web server.  When you first start the server it will look like:
 
 ![App Cloud Web Server](http://f.cl.ly/items/180I1o3H210F2W1d1l1H/Screen%20Shot%202012-07-27%20at%2012.55.31%20PM.png)
 
