@@ -16,7 +16,7 @@ function list( val ) {
 }
 
 program
-  .version('0.0.3')
+  .version('0.0.4')
   .option( '-c, --create-server', 'Create the app cloud web server.' )
   .option( '-n, --app-name [appName]', 'The name of the application you would like to create.')
   .option( '-v, --views [views]', 'A list of views to auto-generate as a comma seperated list.', list, ["view1", "view2"] )
