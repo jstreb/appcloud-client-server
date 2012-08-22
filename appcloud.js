@@ -3,6 +3,7 @@
 var pth = require( "path" );
 var spawn = require( "child_process" ).spawn;
 var fs = require("fs");
+var path = require("path");
 
 var program = require("commander");
 var server = require("./src/commandline/server" );
@@ -25,6 +26,8 @@ program
   .option( '-P, --server-path [path]', 'The path of where the server exists or where to create the server.  If the App Cloud Server is in the current directory, this is not necessary.', process.cwd() )
   .option( '-p, --app-path [path]', 'The path to put the generated application.  This should only be set if you wish to put the application somewhere other then within the packaged web server.')
   .option( '-k, --sdk-version', 'The version of the App Cloud SDK.' )
+  .option( '-j --path-to-javascript [path]', 'The path to the SDKs JavaScript file on disk to use.  This should be used if you want to use a version of the JavaScript SDK that has not yet been released.', path.join( __dirname,"src", "sdk", "brightcove-app-cloud.js" ) )
+  .option( '-s --path-to-stylesheet [path]', 'The path to the SDKs Stylesheet file on disk to use.  This should be used if you want to use a version of the CSS SDK other then has not yet been released.', path.join( __dirname,"src", "sdk", "brightcove-app-cloud.css" ) )
   .parse(process.argv);
 
 if( process.argv.length === 2 ) {
@@ -53,5 +56,5 @@ if( program.appName ) {
       appPath = program.serverPath;
     }
   }
-  app.createApplication( program.appName, program.views, appPath );
+  app.createApplication( program.appName, program.views, appPath, program.pathToJavascript, program.pathToStylesheet );
 }

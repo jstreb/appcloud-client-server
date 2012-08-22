@@ -33,7 +33,7 @@ var VALID_OOTB_VIEWS = {
   }
 };
 
-module.exports.createApplication = function( name, views, pth ) {
+module.exports.createApplication = function( name, views, pth, pathToJavaScript, pathToStylesheet ) {
   _name = name;
   _views= views;
   _path = pth;
@@ -44,7 +44,7 @@ module.exports.createApplication = function( name, views, pth ) {
   }
   
   createDirectoryStructure();
-  copyInSDKFiles();
+  copyInSDKFiles( pathToJavaScript, pathToStylesheet );
   generateManifestFile();
   generateViewFiles();
   generateJavaScriptFiles();
@@ -69,10 +69,10 @@ function createDirectoryStructure() {
   fs.mkdirSync( path.join( _path,  _name, "txt", "locales" ) );
 }
 
-function copyInSDKFiles() {
+function copyInSDKFiles( pathToJavaScript, pathToStylesheet ) {
   msg( "Copying in SDK files..." );
-  copy( path.join( __dirname, "..", "sdk", "brightcove-app-cloud.js" ), path.join( _path, _name, "javascripts", "lib", "brightcove-app-cloud.js") );
-  copy( path.join( __dirname, "..", "sdk", "theme.css"), path.join( _path, _name, "stylesheets", "theme.css") );
+  copy( pathToJavaScript, path.join( _path, _name, "javascripts", "lib", "brightcove-app-cloud.js") );
+  copy( pathToStylesheet, path.join( _path, _name, "stylesheets", "brightcove-app-cloud.css") );
 }
 
 function generateManifestFile() {
