@@ -16,6 +16,15 @@ body {
   text-align: center;
 }
 
+.flash-error {
+  background-color: #F0D7E0;
+  color: #B33664;
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  width: 1024px;
+}
+
 .top-nav .wrapper {
   margin: auto;
   width: 1024px;

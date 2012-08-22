@@ -16,7 +16,10 @@ html
           a(href="http://forum.brightcove.com/t5/App-Development/bd-p/app_development", target="_blank") Guides
         li
           a.last(href="mailto:bcappcloud@googlegroups.com") Mailing list
-
+    
+    -if( global.newVersionAvailable)
+      .flash-error There is a new version of the appcloud module available.  Run the command "sudo npm upgrade -g appcloud" to get the latest.
+    
     .logo-container
       img(src="/images/logo.png")
     .container!= body
