@@ -11,5 +11,6 @@ module.exports.createServer = function( path ) {
   }
   wrench.copyDirSyncRecursive(pth.join( __dirname, "..", "server" ), pth.join( path, "appcloud-server" ) );
   msg( "  The App Cloud web server is now located at " + pth.join( path, "appcloud-server" ) + "." );
-  msg( "  To start the server run 'node.js " + pth.join( path, "appcloud-server", "app.js" ) );
+  msg( "  To start the server cd into appcloud-server and then run 'npm install'." );
+  msg( "  After the node modules have installed run 'node app.js', to start the server." );
 }
