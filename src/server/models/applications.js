@@ -4,8 +4,10 @@ var request = require('request');
 var fs = require('fs');
 var AdmZip = require('adm-zip');
 var exec = require('child_process').exec;
+var npp = require('node-properties-parser');
 
 var GITHUB_ADDRESS = 'https://github.com/BrightcoveOS/App-Cloud-Demos/zipball/master';
+var localProperties;
 
 module.exports.getDemos = function() {
   var listOfApps = wrench.readdirSyncRecursive( path.join( global.baseDir, 'public') );
@@ -104,11 +106,26 @@ module.exports.getReadmeByAppName = function( name ) {
 };
 
 module.exports.createApp = function( data, cb ) {
+  var cmd = 'appcloud -n ' + data.appName.replace(/ /g, "_") + ' -v ' + data.viewNames.join() + ' -p ' + path.join( __dirname, "..", "public" );
+  
   for( var i=0, len = data.viewNames.length; i<len; i++) {
     data.viewNames[i] = data.viewNames[i].replace(/ /g, "_");
   }
   
-  exec( 'appcloud -n ' + data.appName.replace(/ /g, "_") + ' -v ' + data.viewNames.join() + ' -p ' + path.join( __dirname, "..", "public" ), cb );
+  //Check to see if there is a local properties file that specifies the path to the SDK.
+  if( !localProperties && fs.existsSync( path.join( __dirname, "..", "local.properties" ) ) ) {
+    localProperties = npp.readSync( path.join( __dirname, "local.properties" ) );
+  }
+    
+  if( localProperties && localProperties["pathToJavaScriptSDK"] ) {
+    cmd += " -j " + props["pathToJavaScriptSDK"];
+  }
+    
+  if( localProperties && localProperties["pathToStylesheetSDK"] ) {
+    cmd += " -s " + props["pathToStylesheet"];
+  }
+  
+  exec( cmd, cb );
 }
 
 function isDemoApp( pth ) {
