@@ -25,15 +25,16 @@ module.exports.index = function(req, res) {
       }
     );
   } catch( e ) {
-    res.render( "error", { title: "App Cloud Error Page"} );
+    res.render( "error", { title: "App Cloud Error Page", error: e } );
   }
 };
 
 module.exports.show = function( req, res ) {
   var app = req.params.name;
-  var manifestURL = "http://" + req.headers.host + "/" + app + "/manifest.json";
+  var type = ( req.params.type === "app" ) ? "my-applications" : "demos";
+  var manifestURL = "http://" + req.headers.host + "/" + type + "/" + app + "/manifest.json";
   var url = "https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=274x274&chld=L|0&chl=" + manifestURL;
-  var manifestFile = fs.readFileSync( path.join( global.baseDir, "public", app, "manifest.json" ), "utf-8" );
+  var manifestFile = fs.readFileSync( path.join( global.baseDir, "public", type, app, "manifest.json" ), "utf-8" );
   try {
     var manifest = JSON.parse( manifestFile );
 
@@ -44,11 +45,12 @@ module.exports.show = function( req, res ) {
         app: app,
         manifestPath: manifestURL,
         qrCodeImage: url,
-        views: manifest.views
+        views: manifest.views,
+        type: type
       }
     );
   } catch( e ) {
-    res.render( "error", { title: "App Cloud Error Page"} );
+    res.render( "error", { title: "App Cloud Error Page", error: e } );
   }
 };
 

@@ -11,7 +11,7 @@
     .scroll-container
       .scroller(style="width: " + views.length * 68 + "px")    
         - for( var i=0; i<views.length; i++)
-          a(href="/" + app + "/" + views[i].uri )
+          a(href="/" + type + "/" + app + "/" + views[i].uri )
             .view
             p #{views[i].navigationTitle}
     .leftarrow.disabled

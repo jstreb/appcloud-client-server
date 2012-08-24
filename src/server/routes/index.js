@@ -8,7 +8,7 @@ module.exports = function( server ) {
   server.get( "/app", requiresIP, apps.index );
   server.get( "/app/_newview", apps._newView );
   server.get( "/app/demos", apps.demos );
-  server.get( "/app/:name", requiresIP, apps.show );
+  server.get( "/scan/:type/:name", requiresIP, apps.show );
   server.get( "/app/demo/details/:name", apps.demoDetails );
   server.post( "/app", apps.create );
 };
