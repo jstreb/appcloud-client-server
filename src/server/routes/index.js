@@ -1,5 +1,6 @@
 var controllers = require('../controllers')
 var apps = controllers.Apps;
+var proxy = controllers.Proxy;
 var requiresIP = require('../middleware').requiresIP; 
 
 module.exports = function( server ) {
@@ -11,4 +12,8 @@ module.exports = function( server ) {
   server.get( "/scan/:type/:name", requiresIP, apps.show );
   server.get( "/app/demo/details/:name", apps.demoDetails );
   server.post( "/app", apps.create );
+  
+  //Proxy routes
+  server.get( "/proxy/:url", proxy.get );
+  server.post( "/proxy/:url", proxy.post );
 };
