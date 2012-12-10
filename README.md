@@ -51,5 +51,5 @@ Using a local version of the SDK
 
 If you are actively working on the [app-cloud-sdk](https://github.com/jstreb/app-cloud-sdk) then you may want to create applications and use your local versions.  To do this you will need to create a `local.properties` file and specify where on system the SDK files.  This local.properties file should go inside the `appcloud-server` directory.  Below is an example local.properties file.
 
-    pathToJavaScriptSDK=/path/to/the/sdk/brightcove-app-cloud-1.11.js
-    pathToStylesheetSDK=/path/to/the/sdk/brightcove-app-cloud-1.11.css
+    pathToJavaScriptSDK=/path/to/the/sdk/brightcove-app-cloud-1.12.js
+    pathToStylesheetSDK=/path/to/the/sdk/brightcove-app-cloud-1.12.css

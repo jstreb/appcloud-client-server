@@ -19,7 +19,7 @@ function list( val ) {
 global.localVersion = JSON.parse( fs.readFileSync( pth.join( __dirname, "package.json" ), "utf8" ) ).version;
 
 program
-  .version('0.0.5')
+  .version('0.0.8')
   .option( '-c, --create-server', 'Create the app cloud web server.' )
   .option( '-n, --app-name [appName]', 'The name of the application you would like to create.')
   .option( '-v, --views [views]', 'A list of views to auto-generate as a comma seperated list.', list, ["view1", "view2"] )
