@@ -10,7 +10,7 @@ var server = require("./src/commandline/server" );
 var app = require("./src/commandline/app");
 var msg = require("./src/utils" ).message;
 var views;
-var SDK_VERSION = "1.10.2";
+var SDK_VERSION = "1.12";
 
 function list( val ) {
   return val.split( "," );
@@ -19,7 +19,7 @@ function list( val ) {
 global.localVersion = JSON.parse( fs.readFileSync( pth.join( __dirname, "package.json" ), "utf8" ) ).version;
 
 program
-  .version('0.0.4')
+  .version('0.0.5')
   .option( '-c, --create-server', 'Create the app cloud web server.' )
   .option( '-n, --app-name [appName]', 'The name of the application you would like to create.')
   .option( '-v, --views [views]', 'A list of views to auto-generate as a comma seperated list.', list, ["view1", "view2"] )
